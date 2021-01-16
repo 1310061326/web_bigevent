@@ -19,31 +19,19 @@ function getUserInfo() {
             // 调用renderAvatar() 渲染用户的头像
             renderAvatar(res.data)
         },
-        // 不论成功还是i失败都会执行complete回调函数
-        complete: function (res) {
-            console.log(res);
-            // 在complete回调函数中可以使用res.responseJSON 拿到服务器想赢回来的数据
-            if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败!') {
-                // 1. 清空token
-                localStorage.removeItem('token')
-                // 2. 跳转到登录页面
-                location.href = '/login.html'
-            }
-        }
+        //     // 不论成功还是i失败都会执行complete回调函数
+        //     complete: function (res) {
+        //         console.log(res);
+        //         // 在complete回调函数中可以使用res.responseJSON 拿到服务器想赢回来的数据
+        //         if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
+        //             // 1. 清空token
+        //             localStorage.removeItem('token')
+        //             // 2. 跳转到登录页面
+        //             location.href = '/login.html'
+        //         }
+        //     }
     })
-    // $.ajax({
-    //     method: 'GET',
-    //     url: '/my/userinfo',
-    //     headers: {
-    //         Authorization: localStorage.getItem('token') || ''
-    //     },
-    //     success: function (res) {
-    //         if (res.status !== 0) {
-    //             return layui.layer.msg('获取用户信息失败')
-    //         }
-    //         renderAvatar()
-    //     }
-    // })
+
 }
 
 // 渲染用户的头像
